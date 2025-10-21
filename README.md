@@ -1,6 +1,6 @@
 # 📝 Gerenciador de Tarefas (Flask)
 
-Sistema web desenvolvido em **Python (Flask)** com **metodologia ágil híbrida (Scrum + Kanban)** e integração contínua usando **GitHub Actions**.
+Sistema web desenvolvido em **Python (Flask)** com **metodologia ágil híbrida (Kanban)** e integração contínua usando **GitHub Actions**.
 
 ## 🚀 Funcionalidades
 - Criar, listar, editar e excluir tarefas

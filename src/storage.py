@@ -24,6 +24,10 @@ def add_task(task: Dict) -> Dict:
     data = _read_file()
     task_id = (max([t["id"] for t in data]) + 1) if data else 1
     task["id"] = task_id
+
+    if "prioridade" not in task:
+        task["prioridade"] = "Média"
+
     data.append(task)
     _write_file(data)
     return task

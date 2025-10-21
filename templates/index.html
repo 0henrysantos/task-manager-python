@@ -10,6 +10,7 @@
       <th>Título</th>
       <th>Descrição</th>
       <th>Status</th>
+      <th>Prioridade</th>
       <th>Ações</th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
       <td>{{ t.titulo }}</td>
       <td>{{ t.descricao }}</td>
       <td>{{ t.status }}</td>
+      <td>{{ t.prioridade }}</td>
       <td>
         <a href="{{ url_for('edit', task_id=t.id) }}">Editar</a>
         <form action="{{ url_for('delete', task_id=t.id) }}" method="POST" style="display:inline;">

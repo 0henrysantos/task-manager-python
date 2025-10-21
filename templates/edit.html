@@ -15,6 +15,13 @@
     <option value="Concluído" {% if tarefa.status == "Concluído" %}selected{% endif %}>Concluído</option>
   </select><br>
 
+  <label>Prioridade:</label><br>
+  <select name="prioridade">
+    <option value="Alta" {% if tarefa.prioridade == "Alta" %}selected{% endif %}>Alta</option>
+    <option value="Média" {% if tarefa.prioridade == "Média" %}selected{% endif %}>Média</option>
+    <option value="Baixa" {% if tarefa.prioridade == "Baixa" %}selected{% endif %}>Baixa</option>
+  </select><br><br>
+
   <button type="submit">Salvar Alterações</button>
 </form>
 {% endblock %}

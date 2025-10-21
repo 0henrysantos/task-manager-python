@@ -25,7 +25,8 @@ def create():
         if not valid:
             flash(msg, "danger")
             return redirect(url_for("create"))
-        tarefa = {"titulo": titulo, "descricao": descricao, "status": "A Fazer"}
+        prioridade = request.form.get("prioridade", "Média")
+        tarefa = {"titulo": titulo, "descricao": descricao, "status": "A Fazer", "prioridade": prioridade}
         storage.add_task(tarefa)
         flash("Tarefa criada com sucesso!", "success")
         return redirect(url_for("index"))
@@ -46,7 +47,8 @@ def edit(task_id):
         if not valid:
             flash(msg, "danger")
             return redirect(url_for("edit", task_id=task_id))
-        updates = {"titulo": titulo, "descricao": descricao, "status": status}
+        prioridade = request.form.get("prioridade", tarefa.get("prioridade", "Média"))
+        updates = {"titulo": titulo, "descricao": descricao, "status": status, "prioridade": prioridade}
         storage.update_task(task_id, updates)
         flash("Tarefa atualizada com sucesso!", "success")
         return redirect(url_for("index"))

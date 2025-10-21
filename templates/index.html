@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Lista de Tarefas</h2>
+
+{% if tarefas %}
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Descrição</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in tarefas %}
+    <tr>
+      <td>{{ t.id }}</td>
+      <td>{{ t.titulo }}</td>
+      <td>{{ t.descricao }}</td>
+      <td>{{ t.status }}</td>
+      <td>
+        <a href="{{ url_for('edit', task_id=t.id) }}">Editar</a>
+        <form action="{{ url_for('delete', task_id=t.id) }}" method="POST" style="display:inline;">
+          <button type="submit" onclick="return confirm('Excluir tarefa?')">Excluir</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Nenhuma tarefa cadastrada ainda.</p>
+{% endif %}
+{% endblock %}
